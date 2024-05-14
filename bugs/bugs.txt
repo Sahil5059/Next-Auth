@@ -1,0 +1,16 @@
+BUG - 
+    URL remains "/settings" after logout
+EFFECT -
+    Have to reload page for "login" functionalities to work after logging out.
+
+BUG - 
+    user does not load in the session after manual login but it loads when using social-auth (only if we use client component for displaying data, works fine when using server component)
+EFFECT -
+    Have to reload page for "user" to load after manual login.
+
+
+JUGAAD FOR TOW BUGS ABOVE - use client component for data-fetching and client component for logout
+
+Also, when updating data in the settings page, the updated data is shown immediately on the client page but it takes some time to load on the server page. soultion - reload the page using useEffect
+
+FROM STACK OVERFLOW - I would always recommend fetching data on the server component and pass the menuData to a child component. That child component could be a client component or another server component based on what you are doing. For a better visualization, here is a blog from vercel.
